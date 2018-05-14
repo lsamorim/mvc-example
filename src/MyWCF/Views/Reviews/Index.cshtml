@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MyMVC.Models.RestaurantReviewViewModel>
+
+@{
+    ViewBag.Title = "Index";
+
+    var firstReview = Model.First();
+}
+
+<h2>The Latest Reviews</h2>
+
+I'm showing th latest @Model.Count() reviews
+<br />
+@VirtualPath
+
+@*@section featured{
+    The first Review NAME is: @firstReview.Name
+}*@
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_Review", item)
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
